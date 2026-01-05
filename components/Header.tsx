@@ -24,7 +24,6 @@ const Header = () => {
             href="/"
             className={cn("nav-link", {
               "is-active": pathName === "/",
-              "is-home": true,
             })}
           >
             Home

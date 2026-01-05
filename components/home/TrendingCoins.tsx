@@ -3,7 +3,7 @@ import Link from "next/link";
 import { TrendingDown, TrendingUp } from "lucide-react";
 
 import { fetcher } from "@/lib/coingecko.actions";
-import { cn, formateCurrency } from "@/lib/utils";
+import { cn, formatCurrency } from "@/lib/utils";
 import DataTable from "../DataTable";
 import { TrendingCoinsFallback } from "./Fallback";
 
@@ -27,7 +27,7 @@ const columns: DataTableColumn<TrendingCoin>[] = [
     cellClassName: "name-cell",
     cell: (coin) => {
       const item = coin.item;
-      const isTrendingUp = item.data.price_change_percentage_24h.usd > 0;
+      const isTrendingUp = item.data?.price_change_percentage_24h?.usd ?? 0 > 0;
 
       return (
         <div
@@ -38,11 +38,14 @@ const columns: DataTableColumn<TrendingCoin>[] = [
         >
           <p>
             {isTrendingUp ? (
-              <TrendingUp width={16} height={36} />
+              <TrendingUp width={16} height={16} />
             ) : (
-              <TrendingDown width={16} height={36} />
+              <TrendingDown width={16} height={16} />
             )}
-            {Math.abs(item.data.price_change_percentage_24h.usd).toFixed(2)}%
+            {Math.abs(item.data?.price_change_percentage_24h?.usd ?? 0).toFixed(
+              2
+            )}
+            %
           </p>
         </div>
       );
@@ -51,7 +54,7 @@ const columns: DataTableColumn<TrendingCoin>[] = [
   {
     header: "Price",
     cellClassName: "price-cell",
-    cell: (coin) => formateCurrency(coin.item.data.price),
+    cell: (coin) => formatCurrency(coin.item.data?.price ?? 0),
   },
 ];
 

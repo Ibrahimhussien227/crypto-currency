@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { fetcher } from "@/lib/coingecko.actions";
-import { formateCurrency } from "@/lib/utils";
+import { formatCurrency } from "@/lib/utils";
 import { CoinOverviewFallback } from "./Fallback";
 
 const CoinOverview = async () => {
@@ -24,7 +24,7 @@ const CoinOverview = async () => {
           <p>
             {coin.name} / {coin.symbol.toUpperCase()}
           </p>
-          <h1>{formateCurrency(coin.market_data.current_price.usd)}</h1>
+          <h1>{formatCurrency(coin.market_data.current_price.usd)}</h1>
         </div>
       </div>
     </div>
