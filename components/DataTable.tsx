@@ -19,7 +19,7 @@ const DataTable = <T,>({
   bodyRowClassName,
   bodyCellClassName,
 }: DataTableProps<T>) => {
-  return +(
+  return (
     <Table className={cn("custom-scrollbar", tableClassName)}>
       <TableHeader className={headerClassName}>
         <TableRow className={cn("hover:bg-transparent!", headerRowClassName)}>
