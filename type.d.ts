@@ -249,6 +249,7 @@ interface LiveCoinHeaderProps {
 }
 
 interface Category {
+  id: string;
   name: string;
   top_3_coins: string[];
   market_cap_change_24h: number;
@@ -288,13 +289,7 @@ interface DataTableProps<T> {
   bodyCellClassName?: string;
 }
 
-type ButtonSize =
-  | "default"
-  | "sm"
-  | "lg"
-  | "icon"
-  | "icon-sm"
-  | "icon-lg";
+type ButtonSize = "default" | "sm" | "lg" | "icon" | "icon-sm" | "icon-lg";
 
 type PaginationLinkProps = {
   isActive?: boolean;
@@ -323,10 +318,7 @@ interface CoinGeckoErrorBody {
   error?: string;
 }
 
-type QueryParams = Record<
-  string,
-  string | number | boolean | undefined
->;
+type QueryParams = Record<string, string | number | boolean | undefined>;
 
 interface PoolData {
   id: string;
